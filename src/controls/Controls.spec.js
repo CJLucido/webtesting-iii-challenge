@@ -1,10 +1,13 @@
 // Test away!
+import React from 'react' 
 
 import {render, fireEvent} from '@testing-library/react'
+import Controls from './Controls'
 
 
-test('It renders', ()=>{
-    
+
+test('It renders Controls', ()=>{
+    expect(render(<Controls/>)).toMatchSnapshot()
 })
 
 test('it shows unlock gate or lock gate text', ()=>{})

@@ -17,3 +17,11 @@ test('it shows close gate or open gate text', ()=>{})
 test('it calls toggleLockedMock on button click', () => {})
 
 test('it calls toggleclosedMock on button click', () => {})
+
+
+//lockgate
+// const closeGate = getByText('Close Gate')
+
+// //lockgate then
+// const openGate = getByText('Open Gate')
+// const unlockGate = getByText('Unlock Gate')

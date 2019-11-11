@@ -52,36 +52,29 @@ test('it calls toggleClosedMock on Open Gate button click', () => {
     const toggleClosedMock = jest.fn();
     const fakeClosed = true
     const {getByText} = render(<Controls toggleClosed={toggleClosedMock} closed={fakeClosed}/>)
-    // const closingButton = getByTestId("closing-button")
+
 
     fireEvent.click(getByText("Open Gate"))
 
     expect(toggleClosedMock).toHaveBeenCalled()
 })
 
-test('it calls toggleLockedMock on button click', () => {
+test('it calls toggleLockedMock on Lock Gate button click', () => {
     const toggleLockedMock = jest.fn();
-    const {getByText} = render(<Controls toggleLocked={toggleLockedMock} locked={false} disabled={false}/>)
-
-
-    // const lockingButton = getByTestId("locking-button")
-
-    // fireEvent.click(getByTestId("locking-button"))
+    const {getByTestId} = render(<Controls toggleLocked={toggleLockedMock} locked={false} closed={true}/>)
     
-    fireEvent.click(getByText("Lock Gate"))
+    fireEvent.click(getByTestId("locking-button"))
 
-    expect(toggleLockedMock).toHaveBeenCalledWith()
+    expect(toggleLockedMock).toHaveBeenCalled()
 
-   
-
-    // fireEvent.click(getByTestId("locking-button"))
-
-    // expect(toggleLockedMock).toHaveBeenCalledWith()
 })
 
-//lockgate
-// const closeGate = getByText('Close Gate')
+test('it calls toggleLockedMock on Unlock Gate button click', () => {
+    const toggleLockedMock = jest.fn();
+    const {getByText} = render(<Controls toggleLocked={toggleLockedMock} locked={true} closed={true}/>)
+    
+    fireEvent.click(getByText("Unlock Gate"))
 
-// //lockgate then
-// const openGate = getByText('Open Gate')
-// const unlockGate = getByText('Unlock Gate')
+    expect(toggleLockedMock).toHaveBeenCalled()
+
+})

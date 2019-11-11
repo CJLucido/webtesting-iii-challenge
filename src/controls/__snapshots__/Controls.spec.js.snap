@@ -11,12 +11,14 @@ Object {
       >
         <button
           class="toggle-btn"
+          data-testid="locking-button"
           disabled=""
         >
           Lock Gate
         </button>
         <button
           class="toggle-btn"
+          data-testid="closing-button"
         >
           Close Gate
         </button>
@@ -30,12 +32,14 @@ Object {
     >
       <button
         class="toggle-btn"
+        data-testid="locking-button"
         disabled=""
       >
         Lock Gate
       </button>
       <button
         class="toggle-btn"
+        data-testid="closing-button"
       >
         Close Gate
       </button>

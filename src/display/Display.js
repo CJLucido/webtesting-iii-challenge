@@ -5,14 +5,14 @@ const Display = ({ closed, locked }) => {
   const lockedClass = `led ${locked ? 'red-led' : 'green-led'}`;
 
   return (
-    <div className="display panel">
-      <div className={lockedClass}>{locked ? 'Locked' : 'Unlocked'}</div>
-      <div className={closedClass}>{closed ? 'Closed' : 'Open'}</div>
+    <div data-testid="display-component" className="display panel">
+      <div data-testid="locked-marquis" className={lockedClass}>{locked ? 'Locked' : 'Unlocked'}</div>
+      <div data-testid="closed-marquis" className={closedClass}>{closed ? 'Closed' : 'Open'}</div>
     </div>
   );
 };
 
-Display.defaultProps = {
+Display.defaultProps = { //what is this?
   closed: false,
   locked: false,
 };

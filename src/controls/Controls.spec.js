@@ -78,3 +78,41 @@ test('it calls toggleLockedMock on Unlock Gate button click', () => {
     expect(toggleLockedMock).toHaveBeenCalled()
 
 })
+
+test('it checks the closed toggle button for disabled if the gate is locked', ()=>{
+    const toggleClosedMock = jest.fn();
+    const {getByTestId} = render(<Controls toggleClosed={toggleClosedMock} locked={true} />)
+
+    fireEvent.click(getByTestId("closing-button"))
+
+    expect(toggleClosedMock).not.toHaveBeenCalled()
+})
+
+test('it checks the locked toggle button for disabled if the gate is open', () => {
+    const toggleLockedMock = jest.fn();
+    const {getByTestId} = render(<Controls toggleLocked={toggleLockedMock} closed={false} />)
+
+    fireEvent.click(getByTestId("locking-button"))
+
+    expect(toggleLockedMock).not.toHaveBeenCalled()
+})
+
+///////////////////////TESTING TEST EVENT CHAINING
+//the following does not work:
+
+// test('it tests event chaining', () => {
+//     const toggleClosedMock = jest.fn();
+//     let fakeClosed = false;
+//     const {getByText} = render(<Controls toggleClosed={toggleClosedMock} closed={fakeClosed}/>)
+//     // const closingButton = getByTestId("closing-button")
+
+//     fireEvent.click(getByText("Close Gate"))
+//     fakeClosed =true;//trying to change a property on a thing that is already rendered
+//     expect(toggleClosedMock).toHaveBeenCalled()
+
+//     fireEvent.click(getByText("Open Gate"))
+
+//     expect(toggleClosedMock).toHaveBeenCalled()
+
+// })
+
